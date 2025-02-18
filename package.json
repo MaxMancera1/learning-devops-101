@@ -1,0 +1,27 @@
+{
+  "name": "learning-devops-101",
+  "version": "1.0.0",
+  "description": "This tutorial will guide you through deploying a Node.js application while following DevOps best practices. Each step includes a task, research hints, and helpful links. This is not a step-by-step guide; you are encouraged to search for solutions on your own.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxMancera1/learning-devops-101.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxMancera1/learning-devops-101/issues"
+  },
+  "homepage": "https://github.com/MaxMancera1/learning-devops-101#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.20.1"
+  }
+}
