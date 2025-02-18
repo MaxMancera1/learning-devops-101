@@ -1,0 +1,33 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Cambia por la rama que uses para desplegar
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Cambia la versión de Node.js si es necesario
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Deploy to EC2
+      run: |
+        ssh -i /path/to/your/private-key.pem ec2-user@18.116.38.187 << 'EOF'
+          cd /home/ec2-user/learning-devops-101
+          git pull origin main  # O la rama correspondiente
+          npm install
+          # Agrega otros comandos para reiniciar el servidor, si es necesario
+        EOF
+
