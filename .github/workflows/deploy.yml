@@ -3,66 +3,38 @@ name: Deploy to EC2
 on:
   push:
     branches:
-<<<<<<< HEAD
-      - main
-=======
-      - main  # Cambia por la rama que uses para desplegar
->>>>>>> 5d089296f987bc227be3b631326a985e5df49809
+      - main  # Cambia esto si la rama de despliegue es diferente
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-<<<<<<< HEAD
-    - name: Check out code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Asegúrate de usar la versión correcta
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
 
-    - name: Build project
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-    - name: Deploy to EC2
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: 18.116.38.187
-        username: ec2-user
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          cd /home/ec2-user/app
-          git pull origin main
-          npm install
-          pm2 restart all
-=======
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'  # Cambia la versión de Node.js si es necesario
-
-    - name: Install dependencies
-      run: |
-        npm install
-
-    - name: Deploy to EC2
-      run: |
-        ssh -i /path/to/your/private-key.pem ec2-user@18.116.38.187 << 'EOF'
-          cd /home/ec2-user/learning-devops-101
-          git pull origin main  # O la rama correspondiente
-          npm install
-          # Agrega otros comandos para reiniciar el servidor, si es necesario
-        EOF
->>>>>>> 5d089296f987bc227be3b631326a985e5df49809
-
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: 18.116.38.187
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/app
+            git pull origin main
+            npm install
+            pm2 restart all
