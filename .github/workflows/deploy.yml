@@ -3,13 +3,47 @@ name: Deploy to EC2
 on:
   push:
     branches:
+<<<<<<< HEAD
+      - main
+=======
       - main  # Cambia por la rama que uses para desplegar
+>>>>>>> 5d089296f987bc227be3b631326a985e5df49809
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Build project
+      run: npm run build
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: 18.116.38.187
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /home/ec2-user/app
+          git pull origin main
+          npm install
+          pm2 restart all
+=======
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -30,4 +64,5 @@ jobs:
           npm install
           # Agrega otros comandos para reiniciar el servidor, si es necesario
         EOF
+>>>>>>> 5d089296f987bc227be3b631326a985e5df49809
 
