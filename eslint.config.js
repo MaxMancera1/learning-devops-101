@@ -1,6 +1,5 @@
 // eslint.config.js
 module.exports = {
-    root: true, // Para asegurarse de que ESLint no busque configuraciones en directorios superiores
     env: {
       browser: true,  // Define que el código será ejecutado en un entorno de navegador
       node: true,     // Define que el código será ejecutado en un entorno de Node.js
