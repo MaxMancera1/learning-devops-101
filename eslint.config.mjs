@@ -1,9 +1,14 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
+import { Linter } from 'eslint';
 
+const config: Linter.Config = {
+  languageOptions: {
+    globals: {
+      someGlobal: 'readonly',
+    },
+  },
+  rules: {
+    // Aquí añades reglas si las tienes
+  },
+};
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  {languageOptions: { globals: {...globals.browser, ...globals.node} }},
-  pluginJs.configs.recommended,
-];
+export default config;
