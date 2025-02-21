@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js",
-    "build": "echo \"Build process not configured yet\""
+    "build": "echo \"Build process not configured yet\"",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
