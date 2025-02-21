@@ -4,7 +4,7 @@
   "description": "This tutorial will guide you through deploying a Node.js application while following DevOps best practices. Each step includes a task, research hints, and helpful links. This is not a step-by-step guide; you are encouraged to search for solutions on your own.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
