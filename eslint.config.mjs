@@ -1,13 +1,13 @@
 import { Linter } from 'eslint';
 
-const config: Linter.Config = {
+const config = {
   languageOptions: {
     globals: {
       someGlobal: 'readonly',
     },
   },
   rules: {
-    // Aquí añades reglas si las tienes
+    // Aquí puedes añadir reglas de ESLint si las tienes
   },
 };
 
