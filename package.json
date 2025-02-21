@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "echo \"Build process not configured yet\"",
+    "build": "webpack --config webpack.config.js",
     "start": "node server.js"
   },
   "repository": {
